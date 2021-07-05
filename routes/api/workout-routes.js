@@ -34,7 +34,30 @@ router.get("/range", (req, res) => {
       });
   });
 
-  
+router.post("/", ({ body }, res) => {
+    db.Workout.create(body)
+    .then(workoutDB => {
+        res.json(workoutDB);
+    })
+    .catch(err => {
+        res.status(400).json(err);
+    });
+});
+
+router.put("/:id", ({ params, body }, res) => {
+    db.Workout.findOneAndUpdate(
+      { _id: params.id },
+      { $push: { exercises: body } },
+      { new: true }
+    )
+      .then((workoutDB) => {
+        res.json(workoutDB);
+      })
+      .catch((err) => {
+        res.json(err);
+      });
+  });
+
 
 
 module.exports = router;
