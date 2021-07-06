@@ -10,7 +10,7 @@
   - [Usage](#usage)
   - [Contribution](#contribution)
   - [Test](#test)
-  - [License](#license)
+  - [Images](#images)
   - [Questions](#questions)
 
   ## Installation
@@ -25,8 +25,11 @@
   ## Test
   n/a
 
-  ## License
-  MIT
+  ## Images
+  ![screenshot](home.png)
+  ![screenshot](add.png)
+  ![screenshot](dashboard.png)
+  
 
   ## Questions
   Github: https://github.com/SamuelHeal
