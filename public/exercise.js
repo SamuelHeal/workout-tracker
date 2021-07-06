@@ -103,10 +103,12 @@ async function handleFormSubmit(event) {
     if (nameInput.value.trim() === "") {
       isValid = false;
     }
+
   } else if (workoutType === "cardio") {
     if (cardioNameInput.value.trim() === "") {
       isValid = false;
     }
+
   }
 
   let workoutData = {};
@@ -127,12 +129,13 @@ async function handleFormSubmit(event) {
       workoutData.reps = Number(repsInput.value.trim());
       workoutData.duration = Number(resistanceDurationInput.value.trim());
     }
+  }
   
+  if (isValid){
     await API.addExercise(workoutData);
     clearInputs();
     toast.classList.add("success");
   }
-  
 }
 
 function handleToastAnimationEnd() {
@@ -159,7 +162,6 @@ if (workoutTypeSelect) {
 if (completeButton) {
   completeButton.addEventListener("click", function (event) {
     shouldNavigateAway = true;
-    console.log(working)
     handleFormSubmit(event);
   });
 }
