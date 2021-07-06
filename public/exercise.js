@@ -104,11 +104,33 @@ async function handleFormSubmit(event) {
       isValid = false;
     }
 
+    if (weightInput.value.trim() === "") {
+      isValid = false;
+    }
+
+    if (setsInput.value.trim() === "") {
+      isValid = false;
+    }
+
+    if (repsInput.value.trim() === "") {
+      isValid = false;
+    }
+
+    if (resistanceDurationInput.value.trim() === "") {
+      isValid = false;
+    }
   } else if (workoutType === "cardio") {
     if (cardioNameInput.value.trim() === "") {
       isValid = false;
     }
 
+    if (durationInput.value.trim() === "") {
+      isValid = false;
+    }
+
+    if (distanceInput.value.trim() === "") {
+      isValid = false;
+    }
   }
 
   let workoutData = {};
@@ -137,8 +159,6 @@ async function handleFormSubmit(event) {
     toast.classList.add("success");
   } else{
     clearInputs();
-    
-    toast.classList.add("success");
     location.href = "/";
   }
 }
