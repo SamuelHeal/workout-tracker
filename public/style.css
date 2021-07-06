@@ -460,6 +460,11 @@ form > button {
   padding: 10px;
 }
 
+.down{
+  position: relative;
+  top: 60px;
+}
+
 @keyframes toast {
   50% {
     opacity: 1;
