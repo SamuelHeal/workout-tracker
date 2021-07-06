@@ -135,6 +135,11 @@ async function handleFormSubmit(event) {
     await API.addExercise(workoutData);
     clearInputs();
     toast.classList.add("success");
+  } else{
+    clearInputs();
+    
+    toast.classList.add("success");
+    location.href = "/";
   }
 }
 
