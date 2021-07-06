@@ -97,25 +97,53 @@ function validateInputs() {
 
 async function handleFormSubmit(event) {
   event.preventDefault();
-  var add = false
+  let isValid = true;
+
+  if (workoutType === "resistance") {
+    if (nameInput.value.trim() === "") {
+      isValid = false;
+    }
+
+    if (weightInput.value.trim() === "") {
+      isValid = false;
+    }
+
+    if (setsInput.value.trim() === "") {
+      isValid = false;
+    }
+
+    if (repsInput.value.trim() === "") {
+      isValid = false;
+    }
+
+    if (resistanceDurationInput.value.trim() === "") {
+      isValid = false;
+    }
+  } else if (workoutType === "cardio") {
+    if (cardioNameInput.value.trim() === "") {
+      isValid = false;
+    }
+
+    if (durationInput.value.trim() === "") {
+      isValid = false;
+    }
+
+    if (distanceInput.value.trim() === "") {
+      isValid = false;
+    }
+  }
 
   let workoutData = {};
 
-  if (workoutType === "cardio") {
-    if (cardioNameInput.value.trim() !== ""){
-      add = true
+  if (isValid){
+    if (workoutType === "cardio") {
       workoutData.type = "cardio";
       workoutData.name = cardioNameInput.value.trim();
       workoutData.distance = Number(distanceInput.value.trim());
       workoutData.duration = Number(durationInput.value.trim());
-    }
-    else{
-      add = false
-    }
+
   }
-  else if (workoutType === "resistance") {
-    if (nameInput.value.trim() !== ""){
-      add = true
+    else if (workoutType === "resistance") {
       workoutData.type = "resistance";
       workoutData.name = nameInput.value.trim();
       workoutData.weight = Number(weightInput.value.trim());
@@ -123,16 +151,12 @@ async function handleFormSubmit(event) {
       workoutData.reps = Number(repsInput.value.trim());
       workoutData.duration = Number(resistanceDurationInput.value.trim());
     }
-    else{
-      add = false
-    }
-  }
-
-  if (add){
+  
     await API.addExercise(workoutData);
     clearInputs();
     toast.classList.add("success");
   }
+  
 }
 
 function handleToastAnimationEnd() {
