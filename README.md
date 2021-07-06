@@ -1,6 +1,9 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)<br />https://opensource.org/licenses/MIT
   
   # Workout Tracker
+
+  ## Deployed URL:
+  https://workout-tracker-20210706.herokuapp.com/
   
   ## Description:
   The goal of this task was to create a web application that could track workout progress. The website utilises mongoDB and express.js in order to create and store user input data. 
